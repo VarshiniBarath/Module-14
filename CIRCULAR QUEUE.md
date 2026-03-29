@@ -25,11 +25,49 @@ To write a Python program with a function to insert float values into a Circular
 ### PROGRAM
 
 ```
+Reg.No: 212222090028
+Name: Varshini R
 
+class CircularQueue:
+    def __init__(self, size):
+        self.size = size
+        self.queue = [0] * size
+        self.front = -1
+        self.rear = -1
 
+    def enqueue(self, value):
+
+        if (self.rear + 1) % self.size == self.front:
+            print("Queue is full")
+            return
+
+        if self.front == -1:
+            self.front = self.rear = 0
+        else:
+            self.rear = (self.rear + 1) % self.size
+
+        self.queue[self.rear] = value
+
+    def display_full_queue(self):
+        return self.queue
+
+cq_size = int(input())  
+cq = CircularQueue(cq_size)
+
+while True:
+    try:
+        num = input()
+        if num == '':
+            break
+        cq.enqueue(int(num))
+    except:
+        break
+
+print(cq.display_full_queue())
 ```
 
 ### OUTPUT
-
+<img width="713" height="449" alt="image" src="https://github.com/user-attachments/assets/16c92d66-5aa5-4f94-82ec-8fc00b5fca10" />
 
 ### RESULT
+Thus the Python program with a function to insert float values into a Circular Queue is implemented and executed successfully
